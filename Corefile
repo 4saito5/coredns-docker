@@ -1,8 +1,10 @@
-.:53 {
+.:1053 {
     etcd {
-        endpoint http://etcd:2379
         path /skydns
+        endpoint http://etcd:2379
     }
-    log
+    reload
+    cache
     errors
+    log
 }

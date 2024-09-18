@@ -6,8 +6,6 @@ services:
     container_name: etcd
     environment:
       - ALLOW_NONE_AUTHENTICATION=yes
-      - ETCD_ADVERTISE_CLIENT_URLS=http://0.0.0.0:2379
-      - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
     ports:
       - "2379:2379"
     command: >
@@ -27,9 +25,9 @@ services:
     volumes:
       - ./Corefile:/Corefile
     ports:
-      - "53:53/udp"
-      - "53:53/tcp"
-    command: -conf /Corefile
+      - "1053:1053/udp"
+      - "1053:1053/tcp"
+    command: -conf /Corefile -dns.port 1053
 
 volumes:
   etcd-data:
